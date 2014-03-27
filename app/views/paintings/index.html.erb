@@ -1,0 +1,25 @@
+<h1>Listing paintings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @paintings.each do |painting| %>
+  <tr>
+    <td><%= painting.name %></td>
+    <td><%= image_tag painting.image.url(:thumb) %></td>
+    <td><%= link_to 'Show', painting %></td>
+    <td><%= link_to 'Edit', edit_painting_path(painting) %></td>
+    <td><%= link_to 'Destroy', painting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Painting', new_painting_path %>
